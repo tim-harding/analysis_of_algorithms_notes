@@ -18,11 +18,9 @@
 
 \begin{document}
 
-\section{Foundations}
+\section{The Role of Algorithms in Computing}
 
-\subsection{The Role of Algorithms in Computing}
-
-\subsection{Getting Started}
+\section{Getting Started}
 \textbf{Loop invariants:} For example, in insertion sort, we work on a subarray of \texttt{0..j} elements. It is a loop invariant that the elements \texttt{0..j-1} are already in sorted order.
 \begin{enumerate}
     \item \textbf{Initialization:} It is true prior to the first iteration.
@@ -31,7 +29,7 @@
 \end{enumerate}
 In the case of insertion sort, the sorted subarray has only one element, so it must be true on the first iteration. The procedure puts that added element in sorted order within the subarray so that the next iteration will have the loop invariant met. After termination, the loop invariant still holds, which gives the algorithm correctness.
 
-\subsection{Analyzing Algorithms}
+\section{Analyzing Algorithms}
 The running time $T(n)$ of an algorithm is the cost of each line times the number of times each line is run. This may change depending on the input.
 
 \begin{align*}
@@ -47,9 +45,9 @@ We mainly focus on worst-case runtime because it gives a good upper bound, becau
     \Theta &\rightarrow \text{Average case}
 \end{align*}
 
-\subsection{Designing Algorithms}
+\section{Designing Algorithms}
 
-\subsubsection{Divide-and-conquer}
+\subsection{Divide-and-conquer}
 Instead of incremental algorithms such as insertion sort that address a single element at a time, we can also use a divide-and-conquer strategy. Merge sort is a good example.
 \begin{enumerate}
     \item \textbf{Divide:} Separate into smaller instances of the same problem.
@@ -57,7 +55,7 @@ Instead of incremental algorithms such as insertion sort that address a single e
     \item \textbf{Combine:} Combine the subproblem solutions into a solution to the larger problem.
 \end{enumerate}
 
-\subsubsection{Analyzing divide-and-conquer}
+\subsection{Analyzing divide-and-conquer}
 Given a divide routines $D$ that produces $a$ recurrences of the problem, a conquer routine $C$, and a base case pertaining to $c$ or fewer elements, we have
 \begin{align*}
     T(n) &= \begin{cases}
