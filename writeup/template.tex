@@ -20,8 +20,17 @@
 
 \section{Foundations}
 
-\subsection*{The Role of Algorithms in Computing}
+\subsection{The Role of Algorithms in Computing}
 
-\subsection*{Getting Started}
+\subsection{Getting Started}
+\textbf{Loop invariants:} For example, in insertion sort, we work on a subarray of \texttt{0..j} elements. It is a loop invariant that the elements \texttt{0..j-1} are already in sorted order.
+\begin{enumerate}
+    \item \textbf{Initialization:} It is true prior to the first iteration.
+    \item \textbf{Maintenance:} It is true before each iteration.
+    \item \textbf{Termination:} It is true when the loop terminates.
+\end{enumerate}
+In the case of insertion sort, the sorted subarray has only one element, so it must be true on the first iteration. The procedure puts that added element in sorted order within the subarray so that the next iteration will have the loop invariant met. After termination, the loop invariant still holds, which gives the algorithm correctness.
+
+\subsection{Analyzing Algorithms}
 
 \end{document}
