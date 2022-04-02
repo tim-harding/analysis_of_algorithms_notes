@@ -39,12 +39,6 @@ The running time $T(n)$ of an algorithm is the cost of each line times the numbe
 
 We mainly focus on worst-case runtime because it gives a good upper bound, because in some cases it occurs fairly often, and because it is often roughly the same as the average case. Average-case runtime also requires more complex probabilistic analysis.
 
-\begin{align*}
-    O      &\rightarrow \text{Upper bound} \\
-    \Omega &\rightarrow \text{Lower bound} \\
-    \Theta &\rightarrow \text{Average case}
-\end{align*}
-
 \section{Designing Algorithms}
 
 \subsection{Divide-and-conquer}
@@ -64,5 +58,43 @@ Given a divide routines $D$ that produces $a$ recurrences of the problem, a conq
     \end{cases}
 \end{align*}
 The total runtime is the sum of $T(n)$ over each level of the recursion tree.
+
+\section{Growth of Functions}
+
+\subsection{Asymptotic notation}
+\begin{align*}
+    O      &\rightarrow \text{Upper bound} \\
+    \Omega &\rightarrow \text{Lower bound} \\
+    \Theta &\rightarrow \text{Tight bound}
+\end{align*}
+
+$\Theta(g(n))$ refers to the set of functions for which any input $n \geq n_0$ will be bounded by scalar multiples of $g(n)$. Specifically, $\Theta(g(n)) = \curly{f(n) : c_1 g(n) \leq f(n) \leq c_2 g(n)}$. This is also referred to as an asymptotically tight bound. In a similar manner, $O(g(n)) = \curly{f(n) : f(n) \leq c g(n)}$ and $\Omega(g(n)) = \curly{f(n) : c g(n) \leq f(n)}$.
+
+Look at the example of $f(n) = \frac{1}{2} n^2 - 3n$:
+\begin{align*}
+    c_1 n^2 \leq \frac{1}{2} n^2 - 3n \leq c_2 n^2 \\
+    c_1 \leq \frac{1}{2} - \frac{3}{n} \leq c_2
+\end{align*}
+When $n \geq 1$, we may choose $c_2 = \frac{1}{2}$ and the upper bound will be satisfied for all $n \geq 1$. The middle part becomes positive at $n = 7$, so we notice that $\frac{1}{2} - \frac{3}{7} = \frac{7}{14} - \frac{6}{14} = \frac{1}{14}$. We pick $c_1 = \frac{1}{14}$, and the middle will never dip below this for $n \geq 7$. Thus, we have $n_0 = 7$, $c_1 = \frac{1}{14}$, and $c_2 = \frac{1}{2}$, which shows that $f(n)$ is asymptotically tightly bound by $n^2$.
+
+In general, throw away lower order terms and constants on polynomial runtimes to get the big O runtime.
+
+Weird notation to expect:
+\begin{align*}
+    2n^2 + \Theta(n) &= \Theta(n^2) \\
+    f(n) = \Theta(g(n)) &\Leftrightarrow f(n) \in \Theta(g(n))
+\end{align*}
+
+Little $o$ notation is similar to big $O$ notation, except that instead of some particular choice of $c$, the bound must be true for any positive choice of $c$. In effect, the runtime is insignificant compared to $g(n)$ in the limit, or $\lim_{n \rightarrow \infty}\frac{f(n)}{g(n)} = 0$. Little $\omega$ is the counterpart to big $\Omega$ in the same way, meaning that any function in the set is much larger than $g(n)$ in the limit, or $\lim_{n \rightarrow \infty}\frac{f(n)}{g(n)} = \infty$.
+
+\begin{align*}
+    O      &\leftrightarrow a \leq b \\
+    \Omega &\leftrightarrow a \geq b \\
+    \Theta &\leftrightarrow a =    b \\
+    o      &\leftrightarrow a <    b \\
+    \omega &\leftrightarrow a >    b \\
+\end{align*}
+
+\subsection{Standard notations and common functions}
 
 \end{document}
